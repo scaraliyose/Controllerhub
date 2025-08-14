@@ -1,2 +1,2 @@
-# OnlineGamingStore
+# Controllerhub
 Online gaming store
