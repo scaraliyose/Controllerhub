@@ -2,5 +2,5 @@ trigger:
 - main
 
 extends:
-  template: start.yml
+  template: template/pipeline.yml
   parameters:
