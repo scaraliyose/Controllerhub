@@ -1,0 +1,6 @@
+trigger:
+- main
+
+extends:
+  template: template/pipeline.yml
+  # parameters:
