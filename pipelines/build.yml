@@ -3,4 +3,4 @@ trigger:
 
 extends:
   template: template/pipeline.yml
-  parameters:
+  # parameters:
