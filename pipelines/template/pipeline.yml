@@ -1,0 +1,14 @@
+# parameters:
+
+pool:
+  vmImage: ubuntu-latest
+stages:
+  - stage: LinterStage
+    displayName: 'LinterStage'
+    jobs:
+      - job: BuildJob
+        steps:
+          bash: |
+            echo "Running linter..."
+            # Add linter commands here
+        displayName: 'LinterJob'

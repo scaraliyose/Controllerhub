@@ -1,0 +1,6 @@
+trigger:
+- main
+
+extends:
+  template: start.yml
+  parameters:
