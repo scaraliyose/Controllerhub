@@ -1,10 +1,10 @@
 # parameters:
 ---
 
-  pool:
-    vmImage: ubuntu-latest
   stages:
     - stage: LinterStage
+      pool:
+        vmImage: ubuntu-latest
       displayName: 'LinterStage'
       jobs:
         - job: LinterJob
