@@ -41,7 +41,7 @@
             flake8 ./
             # Add linter commands here
           displayName: "Linter Run"
-  - stage: "Unit Testing Stage"
+  - stage: "UnitTestingStage"
     pool:
       vmImage: ubuntu-latest
     jobs:
