@@ -1,15 +1,40 @@
 # parameters:
 ---
+  parameters:
+    - name: PythonVersion
+      type: string 
+      values:
+        - '3.9'
+        - '3.10'
+        - '3.11'
+        - '3.12'
+        - '3.13'
+      default: '3.11'
+
 
   stages:
   - stage: LinterStage
     pool:
       vmImage: ubuntu-latest
-    displayName: 'LinterStage'
     jobs:
     - job: LinterJob
       steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: ${{ parameters.PythonVersion }}
+          displayName: 'Use Python ${{ parameters.PythonVersion }}'
         - bash: |
             echo "Running linter..."
             # Add linter commands here
           displayName: 'LinterJob'
+    - job: UnitTestsJob
+      dependsOn: LinterJob
+      steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: ${{ parameters.PythonVersion }}
+          displayName: 'Use Python ${{ parameters.PythonVersion }}'
+        - bash: |
+            echo "Running Tests..."
+            # Add Tests commands here
+          displayName: 'UnitTestsJob'
