@@ -13,22 +13,39 @@
 
 
   stages:
-  - stage: LinterStage
+  - stage: "Linter Stage"
     pool:
       vmImage: ubuntu-latest
     jobs:
-    - job: LinterJob
+    - job: Install Python
       steps:
         - task: UsePythonVersion@0
           inputs:
             versionSpec: ${{ parameters.PythonVersion }}
           displayName: 'Use Python ${{ parameters.PythonVersion }}'
+    - job: Install Linters
+      steps:
+        - script: |
+            python -m pip install flake8
+          displayName: "Install Flake8"
+        - script: |
+            python -m pip install mypy
+          displayName: "Install mypy"
+    - job: Run Linters
+      steps:
         - bash: |
             echo "Running linter..."
+            pwd
+            ll
+            mypy ./
+            flake8 ./
             # Add linter commands here
-          displayName: 'LinterJob'
+          displayName: "Linter Run"
+  - stage: "Unit Testing Stage"
+    pool:
+      vmImage: ubuntu-latest
+    jobs:
     - job: UnitTestsJob
-      dependsOn: LinterJob
       steps:
         - task: UsePythonVersion@0
           inputs:
