@@ -68,8 +68,7 @@
           displayName: "Run Unit Tests"
   - stage: "DeploymentApprovalStage"
     dependsOn: UnitTestingStage
-    pool:
-      vmImage: ubuntu-latest
+    pool: server
     jobs:
     - job: DeploymentApprovalJob
       steps:
