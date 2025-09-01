@@ -36,8 +36,8 @@
             echo "Running linter..."
             pwd
             ls
-            python -m mypy ./
-            python -m flake8 ./
+            python -m mypy .
+            python -m flake8 .
           displayName: "Linter Run"
   - stage: "UnitTestingStage"
     dependsOn: LinterStage
@@ -71,6 +71,7 @@
       steps:
         - task: ManualValidation@1
           inputs:
+            instructions: 'Please approve the deployment.'
             timeoutInMinutes: 5
   - stage: "DeploymentStage"
     dependsOn: DeploymentApprovalStage
