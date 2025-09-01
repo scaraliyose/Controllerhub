@@ -23,7 +23,7 @@
           inputs:
             versionSpec: ${{ parameters.PythonVersion }}
           displayName: 'Use Python ${{ parameters.PythonVersion }}'
-    - job: InstallLinters
+    - job: RunLinters
       dependsOn: InstallPython
       steps:
         - script: |
@@ -32,9 +32,6 @@
         - script: |
             python -m pip install mypy
           displayName: "Install mypy"
-    - job: RunLinters
-      dependsOn: InstallLinters
-      steps:
         - bash: |
             echo "Running linter..."
             pwd
