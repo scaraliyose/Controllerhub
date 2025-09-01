@@ -39,8 +39,8 @@
             echo "Running linter..."
             pwd
             ls
-            mypy ./
-            flake8 ./
+            python -m mypy ./
+            python -m flake8 ./
           displayName: "Linter Run"
   - stage: "UnitTestingStage"
     dependsOn: LinterStage
