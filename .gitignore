@@ -1,0 +1,10 @@
+# SQLite database & transient files
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+
+# Node
+node_modules/
+.env
