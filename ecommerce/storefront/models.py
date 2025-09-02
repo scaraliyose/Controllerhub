@@ -1,8 +1,8 @@
 from django.db import models
 import datetime
 
-from django.urls import clear_script_prefix
-from streamlit import status
+# from django.urls import clear_script_prefix
+# from streamlit import status
 
 # Create your models here.
 
