@@ -35,7 +35,7 @@
         - bash: |
             echo "Running mypy linter..."
             python -m mypy .
-          displayName: "Type Check (mypy)"
+          displayName: "Linter Run (mypy)"
         - bash: |
             echo "Running flake8 linter..."
             python -m flake8 .
