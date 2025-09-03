@@ -8,5 +8,18 @@
 <body>
     <h1>Welcome to Gamers Paradise</h1>
     <p>Your one-stop shop for all gaming controllers and accessories!</p>
+
+    <h2>Products</h2>
+    {% if products %}
+      <ul>
+        {% for p in products %}
+          <li>
+            <a href="{% url 'product_detail' p.pk %}">{{ p.name }}</a> — ${{ p.price }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No products yet.</p>
+    {% endif %}
 </body>
 </html>
