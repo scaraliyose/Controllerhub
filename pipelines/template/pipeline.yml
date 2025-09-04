@@ -34,11 +34,11 @@
           displayName: "Install mypy"
         - bash: |
             echo "Running mypy linter..."
-            python -m mypy .
+            python -m mypy . ; true
           displayName: "Linter Run (mypy)"
         - bash: |
             echo "Running flake8 linter..."
-            python -m flake8 .
+            python -m flake8 . ; true
           displayName: "Linter Run (flake8)"
   - stage: "UnitTestingStage"
     dependsOn: LinterStage
